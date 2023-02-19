@@ -1,0 +1,21 @@
+<h1> Hi Everyone !</h1>
+<p> This is my first page with Flask !</p>
+<p> My name is {{first_name|capitalize}} !</p>
+<p>{{stuff}}</p>
+<p>{{stuff|safe}}</p>
+<p>{{stuff|striptags}}</p>
+<br><br>
+{{fav_pizza}}
+ <br><br/>
+<h3> Favourite Pizza:</h3>
+{% for topping in fav_pizza %}
+    {% if topping == 41%}
+        {{topping+100}} <br/>
+    {% else %}
+        {{topping}} <br/>    
+    {% endif %}
+{% endfor %}
+<br><br/>
+{{fav_pizza.2}}
+<br><br/>
+{{fav_pizza.0|reverse}}

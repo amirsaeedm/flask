@@ -1,0 +1,33 @@
+Create Virtual Environment:
+python -m venv flask
+
+Activate Virtual Environment:
+flask\Scripts\activate   (In GIT Bash navigate to directory and run: source flask/Scripts/activate)
+
+Check installed python  Libraries:
+pip freeze
+
+
+
+Enable Debug Mode in Flask Apps:
+export FLASK_ENV=development
+OR
+export FLASK_DEBUG=1
+
+Assign a Python file to Flask:
+export FLASK_APP=hello.py
+
+Run Flask app:
+flask run
+
+
+Create SSH Key:
+deactivate 	(from Virtual Environment)
+cd ~/ 		(Goto Default working directory of windows)
+mkdir .ssh  (Create a hiddher folder using .)
+cd .ssh		(Navigate to ssh folder)
+ssh-keygen.exe (Creat SSH key and press enter.enter to keep defaults)
+Add SSH key in id_rsa.pub to Github -> Settings -> SSH and GPG Keys -> New SSH Key
+
+Push to Github:
+touch .gitignore	(Create a Gitignore file and add Virtual Environment folder to this file)
