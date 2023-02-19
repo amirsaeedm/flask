@@ -31,3 +31,10 @@ Add SSH key in id_rsa.pub to Github -> Settings -> SSH and GPG Keys -> New SSH K
 
 Push to Github:
 touch .gitignore	(Create a Gitignore file and add Virtual Environment folder to this file)
+git init
+git add .
+git commit -m 'First Commit'
+
+git remote add origin https://github.com/amirsaeedm/flask.git
+git branch -M main
+git push -u origin main
