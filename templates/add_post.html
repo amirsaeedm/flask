@@ -9,26 +9,29 @@
     </div>   
 {% endfor %}
 
-{% if name %}
-    <h1>Hello {{name}} !</h1>
-    <br/>
-    <img src="{{ url_for('static', filename='images/NorthPeak.png') }}" width=900>
-    <br><br/>
-    <p id="demo">This was made from name.html</p>
-    <script src="{{ url_for('static', filename='js/myfile.js') }}"></script>
-{% else %}
-    <h1>What's Your Name?</h1>
-    <br/>
+<h1>Add Blog Post</h1>
+<br/>
+<div class="shadow p-3 mb-5 bg-body rounded">
     <form method="POST">
         {{form.hidden_tag()}}
-        {{form.name.label(class="form-label")}}  <!--class="form-label" filled in from bootstrap-->
-                                                <!-- https://getbootstrap.com/docs/5.0/forms/overview/ -->
-        {{form.name(class="form-control")}}  <!--Text Entry Box, class="form-control" filled in from bootstrap-->
+        {{form.title.label(class="form-label")}}
+        {{form.title(class="form-control")}}
         <br/>
+        {{form.author.label(class="form-label")}}
+        {{form.author(class="form-control")}}
+        <br/>
+        {{form.slug.label(class="form-label")}}
+        {{form.slug(class="form-control")}}
+        <br/>
+        {{form.content.label(class="form-label")}}
+        {{form.content(class="form-control", rows="10")}}
+        <br/>
+
         {{form.submit(class="btn btn-secondary")}} <!--Submit Button, class="btn btn-primary" filled in from bootstrap-->
                                                 <!--Change "btn btn-primary" to "btn btn-secondary" from bootstrap-->
                                                 <!-- https://getbootstrap.com/docs/5.0/components/buttons/ -->
     </form>
-{% endif %}
+</div>
+<br/><br/><br/>
 
 {% endblock%}

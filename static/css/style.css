@@ -1,0 +1,14 @@
+h1 {
+    color: darkblue;
+    font-size: 60px;
+}
+
+body {
+    background: #f4f4f4;
+}
+
+/* using the id of element from Javascript file */
+#demo { 
+    font-size: 12px;
+    color: darkgreen;
+}

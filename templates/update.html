@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for message in get_flashed_messages() %}
+    <!-- https://getbootstrap.com/docs/5.0/components/alerts/ "Dismissing"-->
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>   
+{% endfor %}
+
+{% if name %}
+    <h1>Update User !</h1>
+    <br/>
+    <table class="table table-hover table-bordered table-striped">  <!-- https://getbootstrap.com/docs/5.0/content/tables/ -->
+        {% for our_user in our_users %}
+            <tr>
+            <td>{{our_user.id}} . {{our_user.name}} - {{our_user.email}} - {{our_user.favourite_color}}</td>   
+            </tr>
+        {% endfor %}
+    </table>
+    <br><br/>
+
+{% else %}
+    <h1>Update User !</h1>
+    <br/>
+    <div class="shadow p-3 mb-5 bg-body rounded">
+        <form action="/update/{{name_to_update.id}}" method="POST">
+            {{form.hidden_tag()}}
+            {{form.name.label(class="form-label")}}  <!--class="form-label" filled in from bootstrap-->
+                                                    <!-- https://getbootstrap.com/docs/5.0/forms/overview/ -->
+            {{form.name(class="form-control", value=name_to_update.name)}}  <!--Text Entry Box, class="form-control" filled in from bootstrap-->
+            <br/>
+            
+            {{form.email.label(class="form-label")}}  <!--class="form-label" filled in from bootstrap-->
+            <!-- https://getbootstrap.com/docs/5.0/forms/overview/ -->
+            {{form.email(class="form-control", value=name_to_update.email)}}  <!--Text Entry Box, class="form-control" filled in from bootstrap-->
+
+            {{form.favourite_color.label(class="form-label")}}  <!--class="form-label" filled in from bootstrap-->
+            <!-- https://getbootstrap.com/docs/5.0/forms/overview/ -->
+            {{form.favourite_color(class="form-control", value=name_to_update.favourite_color)}}  <!--Text Entry Box, class="form-control" filled in from bootstrap-->
+            <br/>
+
+            {{form.submit(class="btn btn-secondary")}} <!--Submit Button, class="btn btn-primary" filled in from bootstrap-->
+                                                    <!--Change "btn btn-primary" to "btn btn-secondary" from bootstrap-->
+                                                    <!-- https://getbootstrap.com/docs/5.0/components/buttons/ -->
+        
+            <a href="{{url_for('delete', id=id)}}" class="btn btn-danger">Delete</a>
+        </form>
+    </div>
+    <br/><br/><br/>
+
+{% endif %}
+
+{% endblock%}

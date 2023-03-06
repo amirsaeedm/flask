@@ -38,3 +38,18 @@ git commit -m 'First Commit'
 git remote add origin https://github.com/amirsaeedm/flask.git
 git branch -M main
 git push -u origin main
+
+
+pip install mysql-connector 
+pip install mysql-connector-python 
+pip install mysql-connector-python-rf
+pip install mysql
+pip install cryptography
+pip install Flask-Migrate
+
+To use Falsk Migrations run:
+flask db init
+flask db migrate -m 'Initial Migration'
+flask db upgrade
+
+
